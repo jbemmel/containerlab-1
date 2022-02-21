@@ -1,0 +1,17 @@
+{#
+ These gNMI YANG updates provision sFlow on SRL nodes
+
+ sFlow is sent inband to a monitoring server address
+#}
+updates:
+- path: /system/sflow
+  val:
+   admin-state: enable
+   sample-rate: 10000
+   sample-size: 256
+   collector:
+   - index: 1
+     collector-address 172.20.20.10
+     network-instance: default
+     source-address: 192.168.0.1
+     port: 6343
